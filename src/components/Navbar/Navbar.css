@@ -1,0 +1,24 @@
+.container{
+    width: 100%;
+    height: auto;
+    background-color: rgb(175, 174, 174);
+}
+
+.nav__list{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1rem;
+}
+
+li{
+    list-style: none;
+    margin-inline: 2rem;
+}
+
+a{
+    text-decoration: none;
+    color: aliceblue;
+    background-color: rgb(107, 107, 107);
+    padding: .25rem;
+    border-radius: .5rem;
+}
