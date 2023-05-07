@@ -1,9 +1,9 @@
 .cart{
-    position: relative;
+    position: absolute;
     width: 3rem;
     height: 3rem;
-    top: .5rem;
-    left: 90%;
+    top: 2rem;
+    left: 92%;
 }
 
 .cart__img{

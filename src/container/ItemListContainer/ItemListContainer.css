@@ -1,0 +1,15 @@
+.list__container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    row-gap: 2rem;
+}
+
+.list__container--greeting{
+    font-size: 2rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-image: linear-gradient(to bottom, rgba(230, 246, 197, 0.919), rgb(238, 255, 251));
+    padding: .5rem;
+    margin-top: 0;
+}
