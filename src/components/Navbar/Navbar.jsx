@@ -3,9 +3,12 @@ import { NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 import  products from '../../asyncmock/products.json'
 import { useState, useEffect } from 'react';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 const Navbar = () => {
     const [linkItem, setLinkItem] = useState([])
+    const { cart } = useContext(CartContext)
 
     useEffect(() => {
         const getLinkItem = new Promise ((resolve, reject) => 
@@ -28,7 +31,7 @@ const Navbar = () => {
                     {linkItem.map(item => <NavLink className='nav__list--link' key={item} to={`/category/${item}`}><li>{item.toUpperCase()}</li></NavLink>)}
                 </ul>
             </nav>
-            <CartWidget counter = {5} />
+            {cart.length !== 0 && <CartWidget />}
         </header>
     )
 }
