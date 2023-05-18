@@ -1,7 +1,7 @@
 import'./Navbar.css';
 import { NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
-import  products from '../../asyncmock/products.json'
+import { collection, getFirestore, getDocs } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
@@ -11,14 +11,18 @@ const Navbar = () => {
     const { cart } = useContext(CartContext)
 
     useEffect(() => {
-        const getLinkItem = new Promise ((resolve, reject) => 
-            resolve(products)
-        )
-        getLinkItem.then(result => {
-            const getCategories = products.map(item => item.category).sort()
-            const categories = new Set(getCategories)
-            setLinkItem([...categories])})
+        const db = getFirestore()
+        
+        const getLinkItem = collection(db, 'products' ) 
+        getDocs(getLinkItem).then(prod => {
+            const prodAdapted = ((prod.docs.map(doc => ({
+                id: doc.id, ...doc.data()})
+            )))
+            const getCategories = prodAdapted.map(item => item.category).sort()
+                const categories = new Set(getCategories)
+                setLinkItem([...categories])})
     },[])
+
 
     return(
         <header className='container'>

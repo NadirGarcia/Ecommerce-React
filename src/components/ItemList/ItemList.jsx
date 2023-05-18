@@ -1,31 +1,25 @@
 import './ItemList.css'
-import products from "../../asyncmock/products.json"
-
 import { useEffect, useState } from "react"
 import { Item } from '../Item/Item'
 import { useParams } from 'react-router-dom'
+import { collection, getFirestore, getDocs, query, where } from 'firebase/firestore'
 
 export const ItemList = () => {
     const [prodList, setProdList ] = useState([])
     const { categoryId } = useParams()
     
     useEffect(() => {
-        const getProducts = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(products)
-            }, 2000)
-        })
-        
-        const getProductsByCategory = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(products.filter(prod => prod.category === categoryId))
-            }, 2000)
-        })
+        const db = getFirestore();
 
-        const asyncFunction = categoryId ? getProductsByCategory : getProducts
+        const collectionRef = categoryId
+        ? query(collection(db, 'products'), where('category', '==', categoryId))
+        : collection(db, 'products')
 
-        asyncFunction.then(prod => {setProdList(prod)})
-        
+        getDocs(collectionRef).then(prod => {
+            setProdList(prod.docs.map(doc => ({
+                id: doc.id, ...doc.data()})
+            ))
+        })
     }, [categoryId])
     
         return(
