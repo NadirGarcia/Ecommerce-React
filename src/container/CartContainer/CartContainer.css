@@ -1,0 +1,33 @@
+.cart__container{
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    table-layout: fixed;
+    width: 80%;
+    border-collapse: collapse;
+}
+
+caption{
+    padding: 20px;
+    font-size: 1.5em;
+}
+
+thead {
+    background-color: #95A5A6;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 1em;
+}
+
+thead th{
+    font-family: 'Rock Salt', cursive;
+}
+
+th, td {
+    padding: 20px;
+}
+
+
