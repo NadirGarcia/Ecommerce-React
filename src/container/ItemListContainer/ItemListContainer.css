@@ -7,9 +7,7 @@
 }
 
 .list__container--greeting{
-    font-size: 2rem;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-image: linear-gradient(to bottom, rgba(230, 246, 197, 0.919), rgb(238, 255, 251));
+    font-size: 2.5rem;
+    font-family: 'Nunito';
     padding: .5rem;
-    margin-top: 0;
 }

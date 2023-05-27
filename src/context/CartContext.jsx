@@ -5,15 +5,21 @@ export const CartContext = createContext()
 export const CartProvider = ({children}) => {
 
     const [cart, setCart] = useState([])
-    console.log(cart);
 
     const addItem = (itemAdd) => {
         if(!isInCart(itemAdd.id)){
             setCart(prev => [...prev, itemAdd])
         }else{
-            /* const findRepeat = cart.find(prod => prod.id === itemAdd.id)
-            itemAdd.quantity = findRepeat.quantity + itemAdd.quantity
-            setCart(prev=> [...prev, findRepeat]) */
+            const findRepeat = cart.map(
+                prod => {
+					if (prod.id === itemAdd.id)
+						return {
+							...prod,
+							quantity: prod.quantity + itemAdd.quantity,
+						}
+					else return prod
+				})
+                setCart(findRepeat)
         }
     }
 
@@ -44,8 +50,11 @@ export const CartProvider = ({children}) => {
         setCart(cartUpdated)
     }
 
+    const clear = () => setCart([])
+
+
     return(
-        <CartContext.Provider value={{ addItem, cart, totalQuantity, total, removeItem }}>
+        <CartContext.Provider value={{ addItem, cart, totalQuantity, total, removeItem, clear }}>
             {children}
         </CartContext.Provider>
     )

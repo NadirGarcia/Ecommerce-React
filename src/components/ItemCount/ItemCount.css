@@ -1,0 +1,49 @@
+.counter__container{
+    display: flex;
+    justify-content: space-evenly;
+    border: 2px solid rgb(180, 180, 180);
+    border-radius: .5em;
+    width: 300px;
+    margin: 2em;
+}
+
+.counter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.counter__btn{
+    border: none;
+    background-color: whitesmoke;
+    color: gray;
+    font-size: .8em;
+}
+
+.counter__btn:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+    color: black;
+}
+
+.counter__qty{
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.count__btn{
+    width: 200px;
+    margin: 1em;
+    padding: .8em;
+    border: none;
+    border-radius: .5em;
+    background-color: greenyellow;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.count__btn:hover{
+    background-color:white;
+    border: 1px solid rgb(104, 103, 103);
+    cursor: pointer;
+}

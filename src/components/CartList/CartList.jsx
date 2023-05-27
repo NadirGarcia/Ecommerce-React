@@ -4,7 +4,7 @@ import { ItemCart } from "../ItemCart/ItemCart"
 export const CartList = ({ cart }) => {
     return (
         <>
-            { cart.map(prod => <tr className="cart__box"><ItemCart key= {prod.id} {...prod}/></tr> ) }
+            { cart.map(prod => <tr key={prod.id} className="cart__box"><ItemCart {...prod}/></tr> ) }
         </>
     )
 }

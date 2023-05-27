@@ -1,0 +1,62 @@
+.checkout__title{
+    font-family: 'Nunito';
+    font-size: 2em;
+}
+
+.section__container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.section__form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: auto;
+    background-color: white;
+}
+
+.section__cart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: auto;
+    background-color: white;
+}
+
+
+.section__cart caption h1{
+    font-family: 'Nunito';
+}
+
+.section__cart table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.section__cart caption{
+    padding: 20px;
+    font-size: 1.5em;
+}
+
+.section__cart thead {
+    background-color: #95A5A6;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 1em;
+}
+
+.section__cart thead th{
+    font-family: 'Open Sans';
+}
+
+.section__cart th, td {
+    font-family: 'Open Sans';
+    font-size: .8em;
+    padding: 1em;
+}
+

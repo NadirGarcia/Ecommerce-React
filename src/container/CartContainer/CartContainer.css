@@ -3,18 +3,22 @@
     justify-content: center;
 }
 
-table {
+.cart__container caption h1{
+    font-family: 'Nunito';
+}
+
+.cart__container table {
     table-layout: fixed;
     width: 80%;
     border-collapse: collapse;
 }
 
-caption{
+.cart__container caption{
     padding: 20px;
     font-size: 1.5em;
 }
 
-thead {
+.cart__container thead {
     background-color: #95A5A6;
     font-size: 14px;
     text-transform: uppercase;
@@ -22,12 +26,28 @@ thead {
     padding: 1em;
 }
 
-thead th{
+.cart__container thead th{
     font-family: 'Rock Salt', cursive;
 }
 
-th, td {
+.cart__container th, td {
     padding: 20px;
 }
 
+.btn{
+    width: 200px;
+    margin: 1em;
+    padding: .8em;
+    border: none;
+    border-radius: .5em;
+    background-color: greenyellow;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btn:hover{
+    background-color:white;
+    border: 1px solid rgb(104, 103, 103);
+    cursor: pointer;
+}
 

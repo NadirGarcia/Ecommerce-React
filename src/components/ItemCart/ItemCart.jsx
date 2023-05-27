@@ -10,7 +10,7 @@ export const ItemCart = ({ id, name, price, quantity}) => {
             <td><p>${price}</p></td>
             <td><p>{quantity}</p></td>
             <td><p>${price*quantity}</p></td>
-            <td><button onClick={() => removeItem(id)}>X</button></td>
+            <td><button onClick={() => removeItem(id)}>x</button></td>
         </>
     )
 }

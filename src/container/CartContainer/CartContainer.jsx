@@ -5,13 +5,13 @@ import { CartList } from "../../components/CartList/CartList"
 import { NavLink } from "react-router-dom"
 
 export const CartContainer = () => {
-    const { cart, total } = useContext(CartContext)
+    const { cart, total, clear } = useContext(CartContext)
 
     return(
-        <body className='cart__container'>
+        <main className='cart__container'>
             <table >
                 <caption>
-                    Mi Carrito
+                    <h1>Mi Carrito</h1>
                 </caption>
                 <thead>
                     <tr>
@@ -27,11 +27,14 @@ export const CartContainer = () => {
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td><NavLink to='/checkout'>Comprar</NavLink></td>
-                        <td><h4>Total de la compra ${total}</h4></td>
+                        <td></td>
+                        <td><NavLink to='/checkout'><button className='btn'>Terminar mi compra</button></NavLink></td>
+                        <td></td>
+                        <td><h4>Total ${total}</h4></td>
+                        <td><button  className='btn' onClick={() => clear()}>Vaciar carrito</button></td>
                     </tr>
                 </tfoot>
             </table>
-        </body>
+        </main>
     )
 }

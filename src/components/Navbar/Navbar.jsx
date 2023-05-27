@@ -1,12 +1,12 @@
 import'./Navbar.css';
 import { NavLink } from "react-router-dom";
-import CartWidget from "../CartWidget/CartWidget";
+import { CartWidget } from "../CartWidget/CartWidget";
 import { collection, getFirestore, getDocs } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 
-const Navbar = () => {
+export const Navbar = () => {
     const [linkItem, setLinkItem] = useState([])
     const { cart } = useContext(CartContext)
 
@@ -26,18 +26,18 @@ const Navbar = () => {
 
     return(
         <header className='container'>
-            <div className='container__brand'>
-                <NavLink to={'/'}><img src='./images/controller.svg' alt='logo'/></NavLink>
-                <span>NG gaming</span>
+            <div className='container__top'>
+                <div className='container__top--brand'>
+                    <NavLink to={'/'}><img src='../images/controller.svg' alt='logo'/></NavLink>
+                    <span>NG gaming</span>
+                </div>
+                {cart.length !== 0 && <CartWidget />}
             </div>
-            <nav className='nav'>
+            <nav className='container__nav'>
                 <ul className="nav__list">
                     {linkItem.map(item => <NavLink className='nav__list--link' key={item} to={`/category/${item}`}><li>{item.toUpperCase()}</li></NavLink>)}
                 </ul>
             </nav>
-            {cart.length !== 0 && <CartWidget />}
         </header>
     )
 }
-
-export default Navbar
