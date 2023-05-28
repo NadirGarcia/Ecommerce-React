@@ -9,6 +9,7 @@ export const Checkout = () => {
     const [sendForm, setSendForm] = useState()
     const { cart, total, clear } = useContext(CartContext)
 console.log(sendForm);
+
     const confirmForm = (formData) => setSendForm(formData)
 
     const sendOrder = () => {
@@ -30,8 +31,15 @@ console.log(sendForm);
                         text: `"Tu codigo de compra es" ${orderAdded}`,
                         icon: "success",
                     });
+                }else{
+                    swal({
+                        title: "Upss algo fallo!!",
+                        text: "Intenta nuevamente mas tarde",
+                        icon: "info",
+                    });
                 }
             })
+
             
     }
 

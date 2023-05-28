@@ -1,4 +1,5 @@
 import { useState } from "react"
+import swal from 'sweetalert';
 
 export const useForm = (initialForm, validateForm) => {
     const [form, setForm] = useState(initialForm)
@@ -27,8 +28,16 @@ export const useForm = (initialForm, validateForm) => {
                 phone: form.phone,
                 email: form.email
             })
+            swal({
+                title: "Bienvenido!",
+                text: "Finaliza con tu compra",
+                icon: "success",
+            });
         }else{
-            console.log('formulario incorrecto')
+            swal({
+                title: "Formulario incorrecto",
+                icon: "error",
+            });
         }
     }
 
