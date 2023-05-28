@@ -15,7 +15,7 @@
 
 .container__top--brand{
     position: absolute;
-    top: .6em;
+    top: 1vh;
     left: 4em;
 }
 
