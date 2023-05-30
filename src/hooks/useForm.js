@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 export const useForm = (initialForm, validateForm) => {
     const [form, setForm] = useState(initialForm)
     const [errors, setErrors] = useState({})
-    const [formData, setFormData] = useState({})
+
 
     const handleChange = (ev) => {
         setForm(prev => ({
@@ -23,14 +23,9 @@ export const useForm = (initialForm, validateForm) => {
         setErrors(validateForm(form));
 
         if(Object.keys(errors).length === 0){
-            setFormData({
-                name: form.name,
-                phone: form.phone,
-                email: form.email
-            })
             swal({
                 title: "Bienvenido!",
-                text: "Finaliza con tu compra",
+                text: "Finaliza tu compra",
                 icon: "success",
             });
         }else{
@@ -44,7 +39,6 @@ export const useForm = (initialForm, validateForm) => {
     return{
         form,
         errors,
-        formData,
         handleChange,
         handleBlur,
         handleSubmit

@@ -27,13 +27,11 @@ const validateForm = (form) => {
         errors.phone = 'Este campo solo acepta numeros'
     }
 
-
     if(!form.email.trim()){
         errors.email = '* Campo obligatorio';
     }else if(!regexEmail.test(form.email.trim())){
         errors.email = 'Campo incorrecto'
     }
-
 
     if(!form.emailConfirm.trim()){
         errors.emailConfirm = '* Campo obligatorio';
@@ -42,20 +40,19 @@ const validateForm = (form) => {
     }else if(form.email !== form.emailConfirm){
         errors.emailConfirm = 'Email incorrecto'
     }
-
     return errors;
 }
 
-export const Form = ({ confirmForm }) => {
+
+export const Form = ({ createBuyer }) => {
     const{
         form,
         errors,
-        formData,
         handleChange,
         handleBlur,
         handleSubmit
     } = useForm(initialForm, validateForm)
-
+    
     return(
         <>
         <h2>Registrate!</h2>
@@ -112,7 +109,7 @@ export const Form = ({ confirmForm }) => {
                     />
                     {errors.emailConfirm && <p className='errors'>{errors.emailConfirm}</p>}
                 </label>
-                <input type='submit' value='REGISTRARME' className='form__btn' onClick={() => confirmForm(formData)}/>
+                <input type='submit' value='REGISTRARME' className='form__btn' />
             </form>
         </>
     )

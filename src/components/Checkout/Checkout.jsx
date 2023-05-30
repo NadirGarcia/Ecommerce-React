@@ -1,20 +1,16 @@
 import './Checkout.css'
 import { CartContext } from "../../context/CartContext"
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { Form } from "../Form/Form"
 import { getFirestore, addDoc, collection  } from 'firebase/firestore'
 import swal from 'sweetalert';
 
 export const Checkout = () => {
-    const [sendForm, setSendForm] = useState()
     const { cart, total, clear } = useContext(CartContext)
-console.log(sendForm);
 
-    const confirmForm = (formData) => setSendForm(formData)
-
-    const sendOrder = () => {
+    const createOrder = () => {
         const order = {
-            buyer: sendForm,
+            buyer: '',
             items: cart,
             total,
         }
@@ -49,7 +45,7 @@ console.log(sendForm);
         <h1 className='checkout__title'>Resumen de tu compra</h1>
         <section className="section__container">
             <article className='section__form'>
-                <Form confirmForm={confirmForm}/>
+                <Form />
             </article>
             <article className='section__cart'>
                 <table >
@@ -71,7 +67,7 @@ console.log(sendForm);
                     </tbody>
                     <tfoot>
                         <tr>
-                            {sendForm !== undefined && <td><button className='btn' onClick={sendOrder}>Confirmar Compra</button></td>}
+                            <td><button className='btn' onClick={createOrder}>Confirmar Compra</button></td>
                             <td></td>
                             <td><h2>Total: ${total}</h2></td>
                         </tr>
