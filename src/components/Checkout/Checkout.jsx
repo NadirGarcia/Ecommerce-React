@@ -1,16 +1,18 @@
 import './Checkout.css'
 import { CartContext } from "../../context/CartContext"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { Form } from "../Form/Form"
 import { getFirestore, addDoc, collection  } from 'firebase/firestore'
 import swal from 'sweetalert';
 
 export const Checkout = () => {
-    const { cart, total, clear } = useContext(CartContext)
+    const { cart, total, clear } = useContext(CartContext);
+    const [buyerData, setBuyerData ] = useState({})
+
 
     const createOrder = () => {
         const order = {
-            buyer: '',
+            buyer: buyerData,
             items: cart,
             total,
         }
@@ -35,8 +37,6 @@ export const Checkout = () => {
                     });
                 }
             })
-
-            
     }
 
 
@@ -45,7 +45,7 @@ export const Checkout = () => {
         <h1 className='checkout__title'>Resumen de tu compra</h1>
         <section className="section__container">
             <article className='section__form'>
-                <Form />
+                <Form setBuyerData={setBuyerData}/>
             </article>
             <article className='section__cart'>
                 <table >
@@ -67,7 +67,7 @@ export const Checkout = () => {
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td><button className='btn' onClick={createOrder}>Confirmar Compra</button></td>
+                            {Object.keys(buyerData).length !== 0 && <td><button className='btn' onClick={createOrder}>Confirmar Compra</button></td>}
                             <td></td>
                             <td><h2>Total: ${total}</h2></td>
                         </tr>

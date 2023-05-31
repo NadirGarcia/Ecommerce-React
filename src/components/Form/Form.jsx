@@ -44,7 +44,7 @@ const validateForm = (form) => {
 }
 
 
-export const Form = ({ createBuyer }) => {
+export const Form = ({ setBuyerData }) => {
     const{
         form,
         errors,
@@ -53,10 +53,16 @@ export const Form = ({ createBuyer }) => {
         handleSubmit
     } = useForm(initialForm, validateForm)
     
+    const getData = (ev) =>{
+        ev.preventDefault(ev);
+        handleSubmit();
+        setBuyerData(form);
+    }
+
     return(
         <>
         <h2>Registrate!</h2>
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="form" onSubmit={getData}>
                 <label className='form__label'>
                     Nombre y Apellido
                     <input 

@@ -17,10 +17,13 @@
 }
 
 .form__btn{
+    display: flex;
+    justify-content: center;
+    align-self: center;
     width: 200px;
     margin: 1em;
     padding: .8em;
-    border: none;
+    border: 1px solid greenyellow;
     border-radius: .5em;
     background-color: greenyellow;
     font-weight: 600;

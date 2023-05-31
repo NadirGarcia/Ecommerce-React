@@ -5,7 +5,6 @@ export const useForm = (initialForm, validateForm) => {
     const [form, setForm] = useState(initialForm)
     const [errors, setErrors] = useState({})
 
-
     const handleChange = (ev) => {
         setForm(prev => ({
             ...prev,
@@ -19,15 +18,15 @@ export const useForm = (initialForm, validateForm) => {
     }
 
     const handleSubmit = (ev) => {
-        ev.preventDefault(ev);
         setErrors(validateForm(form));
-
+        
         if(Object.keys(errors).length === 0){
             swal({
                 title: "Bienvenido!",
                 text: "Finaliza tu compra",
                 icon: "success",
             });
+            setForm(initialForm)
         }else{
             swal({
                 title: "Formulario incorrecto",
