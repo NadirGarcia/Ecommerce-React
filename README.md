@@ -3,6 +3,9 @@
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
+![Ng-gaming](https://github.com/NadirGarcia/Ecommerce-React/assets/109183316/45feb83e-0995-457c-ac93-5cd16902e814)
+
+
 ## Instalacion
 
 ##### En tu terminal debes ejecutar
